@@ -26,6 +26,8 @@ if (POLICY CMP0051)
   cmake_policy(SET CMP0051 OLD)
 endif()
 
+add_compile_options(-w)
+
 if(CMAKE_VERSION VERSION_LESS 3.1.20141117)
   set(cmake_3_2_USES_TERMINAL)
 else()
@@ -140,9 +142,9 @@ option(ENABLE_SPIRV_CODEGEN "Enables SPIR-V code generation." OFF)
 option(SPIRV_BUILD_TESTS "Build targets for the SPIR-V unit tests." OFF)
 
 # Enable SPIR-V CodeGen for Linux by default.
-if(NOT WIN32)
-  set(ENABLE_SPIRV_CODEGEN ON)
-endif()
+# if(NOT WIN32)
+#   set(ENABLE_SPIRV_CODEGEN ON)
+# endif()
 
 if (${SPIRV_BUILD_TESTS})
   enable_testing()
